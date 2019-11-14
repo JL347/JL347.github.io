@@ -1,0 +1,24 @@
+{
+  "markers": [
+    {
+      "name": "Home",
+      "location": [32.720241, -117.168059],
+      "fact": "Where I currently reside",
+    },
+    {
+      "name": "Central Washington University",
+      "location": [47.011333, -120.531677],
+      "fact": "Where I went to college",
+    },
+    {
+      "name": "LEARN Academy",
+      "location": [32.709586, -117.158121],
+      "fact": "Where I learned to code",
+    },
+    {
+      "name": "Ameri-Force Craft Services",
+      "location": [32.659601, -117.104819],
+      "fact": "My last job as a Recruiter",
+    }
+  ]
+}

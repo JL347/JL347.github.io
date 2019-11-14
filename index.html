@@ -194,7 +194,6 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
   <section class="content-section bg-primary text-white">
     <div class="container text-center">
       <h2 class="mb-4">Professional Experience</h2>
@@ -210,14 +209,14 @@
       <a href="img/JaredLemkeResume2019.pdf" class="btn btn-xl btn-light mr-4" target="_blank"><i class="fas fa-arrow-circle-down"></i>Download</a>
     </div>
   </section>
-
+ 
   <!-- Map -->
   <div id = "map" style = "width: 100%; height:100%;"></div>
     <script>
     function getJSONMarkers() {
-          const markers = [
+          var markers = [
             {
-              name:  "Home",
+              name:  "My Place",
               location: [32.720241, -117.168059],
               fact: "Where I currently reside",
             },
@@ -240,26 +239,31 @@
           return markers;
         }
         
+        var google
+        var place
+        
         function loadMap() {
           // Initialize Google Maps
           const mapOptions = {
             center:new google.maps.LatLng(32.7157, -117.1611),
-            zoom: 5
+            zoom: 7
           }
           const map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
           // Load JSON Data
           const placeMarkers = getJSONMarkers();
-
+          const content = 
+          
           // Initialize Google Markers
           for(place of placeMarkers) {
-            let marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
               map: map,
               position: new google.maps.LatLng(place.location[0], place.location[1]),
               title: place.name
             })
           }
         }
+        
     </script>
     <script async defer 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfYfnAw49doHGTpa2nDfwV2BIVsy2h380&callback=initMap">

@@ -23,7 +23,7 @@
 
 </head>
 
-<body id="page-top" onload = "loadMap()">
+<body id="page-top">
 
   <!-- Navigation -->
   <a class="menu-toggle rounded" href="#">
@@ -213,56 +213,85 @@
   <!-- Map -->
   <div id = "map" style = "width: 100%; height:100%;"></div>
     <script>
-    function getJSONMarkers() {
-          var markers = [
-            {
-              name:  "My Place",
-              location: [32.720241, -117.168059],
-              fact: "Where I currently reside",
-            },
-            {
-              name: "Central Washington University",
-              location: [47.011333, -120.531677],
-              fact:"Where I went to college",
-            },
-            {
-              name: "LEARN Academy",
-              location: [32.709586, -117.158121],
-              fact:"Where I learned to code",
-            },
-            {
-              name: "Ameri-Force Craft Services",
-              location: [32.659601, -117.104819],
-              fact:"My last job as a Recruiter",
+    var map;
+    var InforObj = [];
+    var centerCords = {
+        lat: 32.7157,
+        lng: -117.1611
+    };
+    var markersOnMap = [
+      {
+        placeName:  "My Place",
+        location: [{lat: 32.720241, 
+                    lng: -117.168059}],
+        fact: "Where I currently reside",
+      },
+      {
+        placeName: "Central Washington University",
+        location: [{lat: 47.011333, 
+                    lng: -120.531677}],
+        fact:"Where I went to college",
+      },
+      {
+        placeName: "LEARN Academy",
+        location: [{lat: 32.709586, 
+                    lng: -117.158121}],
+        fact:"Where I learned to code",
+      },
+      {
+        placeName: "Ameri-Force Craft Services",
+        location: [{lat: 32.659601, 
+                    lng: -117.104819}],
+        fact:"My last job as a Recruiter",
+      }
+    ];
+    window.onload = function () {
+        initMap();
+    }
+    
+    var google
+    
+    function addMarkerInfo() {
+            for (var i = 0; i < markersOnMap.length; i++) {
+                var contentString = '<div><h6>' + markersOnMap[i].placeName +
+                    '<p></div>' + markersOnMap[i].fact;
+ 
+                const marker = new google.maps.Marker({
+                    position: markersOnMap[i].location[0],
+                    map: map
+                });
+ 
+                const infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 200
+                });
+ 
+                marker.addListener('click', function () {
+                    closeOtherInfo();
+                    infowindow.open(marker.get('map'), marker);
+                    InforObj[0] = infowindow;
+                });
             }
-          ];
-          return markers;
         }
         
-        var google
-        var place
-        
-        function loadMap() {
-          // Initialize Google Maps
-          const mapOptions = {
-            center:new google.maps.LatLng(32.7157, -117.1611),
-            zoom: 7
-          }
-          const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-          // Load JSON Data
-          const placeMarkers = getJSONMarkers();
-          
-          // Initialize Google Markers
-          for(place of placeMarkers) {
-            var marker = new google.maps.Marker({
-              map: map,
-              position: new google.maps.LatLng(place.location[0], place.location[1]),
-              title: place.name
-            })
-          }
+      function closeOtherInfo() {
+            if (InforObj.length > 0) {
+                /* detach the info-window from the marker */
+                InforObj[0].set("marker", null);
+                /* and close it */
+                InforObj[0].close();
+                /* blank the array */
+                InforObj.length = 0;
+            }
         }
-        
+ 
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: centerCords
+            });
+            addMarkerInfo();
+        }
     </script>
     <script async defer 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfYfnAw49doHGTpa2nDfwV2BIVsy2h380&callback=initMap">

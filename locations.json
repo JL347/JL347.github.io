@@ -1,24 +1,28 @@
 {
-  "markers": [
+  "markersOnMap": [
     {
-      "name": "My Place",
-      "location": [32.720241, -117.168059],
-      "fact": "Where I currently reside",
+      "placeName": "My Place",
+      "location": [{lat: 32.720241, 
+                    lng: -117.168059}],
+      "fact": "Where I currently reside here in sunny San Diego, CA",
     },
     {
-      "name": "Central Washington University",
-      "location": [47.011333, -120.531677],
-      "fact": "Where I went to college",
+      "placeName": "Central Washington University",
+      "location": [{lat: 47.011333, 
+                    lng: -120.531677}],
+      "fact": "Where I went to college to play baseball and study Information Technology and Administrative Management",
     },
     {
-      "name": "LEARN Academy",
-      "location": [32.709586, -117.158121],
-      "fact": "Where I learned to code",
+      "placeName": "LEARN Academy",
+      "location": [{lat: 32.709586, 
+                    lng: -117.158121}],
+      "fact": "Where I learned to code JavaScript, React, Ruby on Rails, and PostgreSQL",
     },
     {
-      "name": "Ameri-Force Craft Services",
-      "location": [32.659601, -117.104819],
-      "fact": "My last job as a Recruiter",
+      "placeName": "Ameri-Force Craft Services",
+      "location": [{lat: 32.659601, 
+                    lng: -117.104819}],
+      "fact": "My last job as a Recruiter where I recruited for naval shipbuilding companies along the West Coast",
     }
   ]
 }

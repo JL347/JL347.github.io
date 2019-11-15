@@ -214,7 +214,7 @@
   <div id = "map" style = "width: 100%; height:100%;"></div>
     <script>
     var map;
-    var InforObj = [];
+    var infoObj = [];
     var centerCords = {
         lat: 32.7157,
         lng: -117.1611
@@ -224,26 +224,27 @@
         placeName:  "My Place",
         location: [{lat: 32.720241, 
                     lng: -117.168059}],
-        fact: "Where I currently reside",
+        fact: "Where I currently reside here in sunny San Diego, CA",
       },
       {
         placeName: "Central Washington University",
         location: [{lat: 47.011333, 
                     lng: -120.531677}],
-        fact:"Where I went to college",
+        fact:"Where I went to college to play baseball and study Information Technology and Administrative Management",
       },
       {
         placeName: "LEARN Academy",
         location: [{lat: 32.709586, 
                     lng: -117.158121}],
-        fact:"Where I learned to code",
+        fact:"Where I learned to code JavaScript, React, Ruby on Rails, and PostgreSQL",
       },
       {
         placeName: "Ameri-Force Craft Services",
         location: [{lat: 32.659601, 
                     lng: -117.104819}],
-        fact:"My last job as a Recruiter",
-      }
+        fact:"My last job as a Recruiter where I recruited for naval shipbuilding companies along the West Coast",
+      },
+      
     ];
     window.onload = function () {
         initMap();
@@ -269,25 +270,25 @@
                 marker.addListener('click', function () {
                     closeOtherInfo();
                     infowindow.open(marker.get('map'), marker);
-                    InforObj[0] = infowindow;
+                    infoObj[0] = infowindow;
                 });
             }
         }
         
       function closeOtherInfo() {
-            if (InforObj.length > 0) {
+            if (infoObj.length > 0) {
                 /* detach the info-window from the marker */
-                InforObj[0].set("marker", null);
+                infoObj[0].set("marker", null);
                 /* and close it */
-                InforObj[0].close();
+                infoObj[0].close();
                 /* blank the array */
-                InforObj.length = 0;
+                infoObj.length = 0;
             }
         }
  
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+                zoom: 10,
                 center: centerCords
             });
             addMarkerInfo();
@@ -296,15 +297,7 @@
     <script async defer 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfYfnAw49doHGTpa2nDfwV2BIVsy2h380&callback=initMap">
     </script>
-  
-  <!--<section id="contact" class="map">-->
-  <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.7132885232663!2d-117.17035088481934!3d32.72024558098921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d954ac260b5235%3A0xb13e68d3fc2d38e2!2s1435%20India%20St%2C%20San%20Diego%2C%20CA%2092101!5e0!3m2!1sen!2sus!4v1567187377070!5m2!1sen!2sus" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
-  <!--  <br />-->
-  <!--  <small>-->
-  <!--    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.7132885232663!2d-117.17035088481934!3d32.72024558098921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d954ac260b5235%3A0xb13e68d3fc2d38e2!2s1435%20India%20St%2C%20San%20Diego%2C%20CA%2092101!5e0!3m2!1sen!2sus!4v1567187537220!5m2!1sen!2sus"></a>-->
-  <!--  </small>-->
-  <!--</section>-->
-
+    
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">

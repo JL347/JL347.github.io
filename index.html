@@ -76,12 +76,26 @@
         <div class="col-lg-10 mx-auto">
           <h1>About Me</h1>
             <p class="lead mb-5">Hello, my name is Jared Lemke and I'm a Software Engineer!</p>
-              <p class="lead mb-5">Originally from Seattle but currently enjoying the San Diego sun. Since graduating college with my Bachelors of Science in Information Technology and Administrative Management,
+              <p class="lead mb-5">Since graduating college with my Bachelors of Science in Information Technology and Administrative Management,
                   I have been working in the recruiting and staffing field. I always felt that I wasn't being challenged enough
                   and that I had a technical aptitude that I wasn't using so I decided to make a career change and find something
-                  that I was truly passionate about. That ended up being programming! I have been enrolled in a Full Stack Web
-                  Development Bootcamp at LEARN Academy since June 2019 and I couldn't be happier. I have learned so much over the past
-                  few months and I can't wait to continue that path in my first opportunity as a Developer.</p>
+                  that I was truly passionate about. That ended up being programming!
+
+                  While my title recently has been Software Engineer/Technical Recruiter, working in a startup culture has provided me the opportunity to work in a variety of roles.
+                  I have learned the term “wears multiple hats” very well to this point. As a Software Engineer with almost 3 years of experience,
+                  I've learned a great deal about what it takes to be a successful developer.
+                  While Frontend engineering, primarily React and JS, has been my bread and butter since I started my development career,
+                  I’ve also worked with Ruby on Rails in the Backend, done some UI/UX design work as well as customer support.
+                  A few things I’ve done regarding that are overhauling the entire color scheme of the platform,
+                  redesigning the main platform dashboard to better exploit the space and layout of the page, as well as repurposing the login page.
+                  I believe that because of what I’ve learned over the past 3 years that I have the strengths to be a competent developer whether that be in Engineering,
+                  UX or Customer Support. Recently, I've started a hybrid role where I handle a major portion of the day-to-day management and operations of the Development team.
+                  This responsibility includes performing 1:1’s with team members, acting as a "scrum master" for our daily engineering Trello board,
+                  and developing/leading new processes to scale the team.
+                  As mentioned, I've also been the Technical Recruiter the entirety of my tenure with my current company which adds to the already 6 years of recruiting experience I had before going to the coding bootcamp.
+                  I've become so used to wearing multiple hats and I value that experience because it's allowed me to learn and develop my skillset by touching so many aspects of the business.
+                  At this point in time, I'm looking for a new challenge that will help me grow in my development career.
+              </p>
               <img style="border-radius: 30px; padding-bottom: 20px;" src="img/headshot.jpeg" alt="Headshot" height="600" width="420">
             </br>
             <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What I Offer</a>
@@ -154,7 +168,7 @@
                 <p class="mb-0">B2B Supply Chain platform - My current/most recent work</p>
               </span>
             </span>
-            <img class="img-fluid" style="height: 450px; width: 600px;" src="img/requis-bg.jpg" alt="Requis Background">
+            <img class="img-fluid" style="height: 450px; width: 600px;" src="img/requis_logo_vert.png" alt="Requis Background">
           </a>
         </div>
         <div class="col-lg-6">
@@ -223,88 +237,6 @@
       <a href="img/JaredLemkeResume2022.pdf" class="btn btn-xl btn-light mr-4" target="_blank"><i class="fas fa-arrow-circle-down"></i>Download</a>
     </div>
   </section>
-
-  <!-- Map -->
-  <div id = "map" style = "width: 100%; height:100%;"></div>
-    <script>
-    var map;
-    var infoObj = [];
-    var centerCords = {
-        lat: 32.7157,
-        lng: -117.1611
-    };
-    var markersOnMap = [
-      {
-        placeName:  "My Place",
-        location: [{lat: 47.6062,
-                    lng: 122.3321}],
-        fact: "Where I currently reside in Seattle, WA",
-      },
-      {
-        placeName: "Central Washington University",
-        location: [{lat: 47.011333,
-                    lng: -120.531677}],
-        fact:"Where I went to college to play baseball and study Information Technology and Administrative Management",
-      },
-      {
-        placeName: "LEARN Academy",
-        location: [{lat: 32.709586,
-                    lng: -117.158121}],
-        fact:"Where I learned to code JavaScript, React, Ruby on Rails, and PostgreSQL",
-      },
-
-    ];
-    window.onload = function () {
-        initMap();
-    }
-
-    var google
-
-    function addMarkerInfo() {
-            for (var i = 0; i < markersOnMap.length; i++) {
-                var contentString = '<div><h6>' + markersOnMap[i].placeName +
-                    '<p></div>' + markersOnMap[i].fact;
-
-                const marker = new google.maps.Marker({
-                    position: markersOnMap[i].location[0],
-                    map: map
-                });
-
-                const infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    maxWidth: 200
-                });
-
-                marker.addListener('click', function () {
-                    closeOtherInfo();
-                    infowindow.open(marker.get('map'), marker);
-                    infoObj[0] = infowindow;
-                });
-            }
-        }
-
-      function closeOtherInfo() {
-            if (infoObj.length > 0) {
-                /* detach the info-window from the marker */
-                infoObj[0].set("marker", null);
-                /* and close it */
-                infoObj[0].close();
-                /* blank the array */
-                infoObj.length = 0;
-            }
-        }
-
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: centerCords
-            });
-            addMarkerInfo();
-        }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfYfnAw49doHGTpa2nDfwV2BIVsy2h380&callback=initMap">
-    </script>
 
   <!-- Footer -->
   <footer class="footer text-center">
